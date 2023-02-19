@@ -14,15 +14,15 @@ public class Song {
         return songName;
     }
 
-    public void setSongNameName(String name) {
+    public void setSongName(String name) {
         this.songName = songName;
     }
 
-    public String getSongAuthorAuthor() {
+    public String getSongAuthor() {
         return songAuthor;
     }
 
-    public void setSongAuthorAuthor(String author) {
+    public void setSongAuthor(String author) {
         this.songAuthor = songAuthor;
     }
 
