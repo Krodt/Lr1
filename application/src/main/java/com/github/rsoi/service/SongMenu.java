@@ -23,7 +23,10 @@ public class SongMenu {
             System.out.println("1. Add a new song to the listen history");
             System.out.println("2. Delete a song from the listen history");
             System.out.println("3. View all songs from the listen history");
-            System.out.println("4. Close");
+            System.out.println("4. Show playlist with most popular songs this month");
+            System.out.println("5. Show playlist with most popular songs previous month");
+            System.out.println("6. Show playlist with songs from other playlists adding new ones");
+            System.out.println("7. Close");
 
             String menuChoice;
             menuChoice = sc.nextLine();
@@ -47,6 +50,18 @@ public class SongMenu {
                         break;
                     }
                     case 4:{
+                        printListInfo(new PlaylistGenerateThisMonth().generatePlaylist(history));
+                        break;
+                    }
+                    case 5:{
+                        printListInfo(new PlaylistGeneratePrevMonth().generatePlaylist(history));
+                        break;
+                    }
+                    case 6:{
+                        printListInfo(new PlaylistGenerateCombineMonths().generatePlaylist(history));
+                        break;
+                    }
+                    case 7:{
                         menuTrue = false;
                         break;
                     }
