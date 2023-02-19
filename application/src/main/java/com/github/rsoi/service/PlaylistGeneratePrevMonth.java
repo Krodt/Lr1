@@ -24,7 +24,7 @@ public class PlaylistGeneratePrevMonth implements PlaylistGenerate{
                 int count = 0;
 
                 for(var date: history.get(song)){
-                    if(date.getMonth() == now.getMonth() && date.getYear() == now.getYear())
+                    if(date.getMonth() != now.getMonth() && date.getYear() == now.getYear())
                         count++;
                 }
 

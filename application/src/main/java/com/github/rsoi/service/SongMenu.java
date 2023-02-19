@@ -32,7 +32,7 @@ public class SongMenu {
             menuChoice = sc.nextLine();
             try{
                 int menuChoiceValue = Integer.parseInt(menuChoice);
-                if (menuChoiceValue < 1 || menuChoiceValue > 4){
+                if (menuChoiceValue < 1 || menuChoiceValue > 7){
                     throw new NumberFormatException();
                 }
 
@@ -104,7 +104,7 @@ public class SongMenu {
 
                 System.out.println("Do you want to continue input songs? (y/ n)");
                 dateString = sc.nextLine();
-                if(dateString.charAt(0) == 'y')
+                if(dateString.charAt(0) == 'n')
                     isFullHistory = true;
 
             }while (!isFullHistory);

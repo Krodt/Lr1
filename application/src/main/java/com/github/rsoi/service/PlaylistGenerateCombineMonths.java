@@ -16,9 +16,9 @@ public class PlaylistGenerateCombineMonths implements PlaylistGenerate {
         Map<Song, List<LocalDate>> combMonths = new HashMap<>();
 
         int i=0;
-        for(var sound: history.keySet()){
-            if(!combMonths.containsKey(sound) && !thisMonth.containsKey(sound) && prevMonth.containsKey(sound)){
-                combMonths.put(sound, history.get(sound));
+        for(var song: history.keySet()){
+            if(!combMonths.containsKey(song) && !thisMonth.containsKey(song) && !prevMonth.containsKey(song)){
+                combMonths.put(song, history.get(song));
                 i++;
             }
 
@@ -27,10 +27,10 @@ public class PlaylistGenerateCombineMonths implements PlaylistGenerate {
         }
         Song max = null;
         int count = 0;
-        for(var sound: thisMonth.keySet()){
-            if(count < thisMonth.get(sound).size()){
-                count = thisMonth.get(sound).size();
-                max = sound;
+        for(var song: thisMonth.keySet()){
+            if(count < thisMonth.get(song).size()){
+                count = thisMonth.get(song).size();
+                max = song;
             }
         }
         if(max != null)
@@ -38,10 +38,10 @@ public class PlaylistGenerateCombineMonths implements PlaylistGenerate {
 
         max = null;
         count = 0;
-        for(var sound: prevMonth.keySet()){
-            if(count < prevMonth.get(sound).size()){
-                count = prevMonth.get(sound).size();
-                max = sound;
+        for(var song: prevMonth.keySet()){
+            if(count < prevMonth.get(song).size()){
+                count = prevMonth.get(song).size();
+                max = song;
             }
         }
         if(max != null)
