@@ -19,7 +19,7 @@ public class SongMenu {
         boolean menuTrue = true;
         while(menuTrue){
             System.out.println("Playlist generator!");
-            System.out.println("___________________");
+            System.out.println("________________________________________________________________");
             System.out.println("1. Add a new song to the listen history");
             System.out.println("2. Delete a song from the listen history");
             System.out.println("3. View all songs from the listen history");
@@ -27,6 +27,7 @@ public class SongMenu {
             System.out.println("5. Show playlist with most popular songs previous month");
             System.out.println("6. Show playlist with songs from other playlists adding new ones");
             System.out.println("7. Close");
+            System.out.println("________________________________________________________________");
 
             String menuChoice;
             menuChoice = sc.nextLine();
@@ -76,9 +77,9 @@ public class SongMenu {
 
     public void addSong(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Input sound name:");
+        System.out.println("Song name:");
         String name = sc.nextLine();
-        System.out.println("Input sound author:");
+        System.out.println("Song author:");
         String author = sc.nextLine();
         Song song = new Song(name, author);
 
@@ -99,14 +100,17 @@ public class SongMenu {
                     list.add(date);
                 }
                 catch (DateTimeParseException e){
-                    System.out.println("Invalid input");
+                    System.out.println("Wrong input!");
                 }
 
-                System.out.println("Do you want to continue input songs? (y/ n)");
+                System.out.println("Do you want to continue input listen dates? (print 'y' to continue / print anything to finish)");
                 dateString = sc.nextLine();
-                if(dateString.charAt(0) == 'n')
+                if(dateString.charAt(0) == 'y')
+                    isFullHistory = false;
+                if (dateString.charAt(0) != 'y') {
                     isFullHistory = true;
-
+                    System.out.println("Done!");
+                }
             }while (!isFullHistory);
 
             history.put(song, list);
@@ -126,13 +130,13 @@ public class SongMenu {
     }
 
     private void printSongInfo(Song sound, List<LocalDate> history){
-        System.out.print(sound.getSongName() + " - " + sound.getSongAuthor() + "{ ");
+        System.out.print(sound.getSongName() + " - " + sound.getSongAuthor() + "( ");
 
         for(var date: history){
-            System.out.print(date.getDayOfMonth() + "." + date.getMonthValue() + "." + date.getYear() + ", ");
+            System.out.print(date.getDayOfMonth() + "." + date.getMonthValue() + "." + date.getYear() + " / ");
         }
 
-        System.out.println("}");
+        System.out.println(")");
     }
 
 
